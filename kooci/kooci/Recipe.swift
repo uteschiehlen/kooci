@@ -21,6 +21,21 @@ class Recipe {
     }
     
     func start() {
-        
+        currentStep = 0
+        // gestureManager.delegate = self
+        nextStep()
     }
+    
+    func nextStep() {
+        let step = steps[currentStep]
+        // gestureManager.gesture = step.gestures
+    }
+}
+
+// gesture delegate
+extension Recipe {
+    
+    //didFinish
+    //currentStep++
+    //nextStep
 }
