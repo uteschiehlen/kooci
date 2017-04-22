@@ -14,6 +14,9 @@
 		9331AD441EABDA1F00582C30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9331AD421EABDA1F00582C30 /* LaunchScreen.storyboard */; };
 		9331AD4E1EABE28B00582C30 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9331AD4C1EABE28B00582C30 /* RestKit.framework */; };
 		9331AD4F1EABE28B00582C30 /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9331AD4D1EABE28B00582C30 /* TextToSpeechV1.framework */; };
+		9331AD521EABEFA200582C30 /* SpeechToTextV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9331AD511EABEFA200582C30 /* SpeechToTextV1.framework */; };
+		9331AD541EABF20100582C30 /* WatsonServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331AD531EABF20100582C30 /* WatsonServices.swift */; };
+		9331AD571EABF5B800582C30 /* Pulsator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9331AD551EABF56800582C30 /* Pulsator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		9331AD451EABDA1F00582C30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9331AD4C1EABE28B00582C30 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
 		9331AD4D1EABE28B00582C30 /* TextToSpeechV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextToSpeechV1.framework; path = Carthage/Build/iOS/TextToSpeechV1.framework; sourceTree = "<group>"; };
+		9331AD511EABEFA200582C30 /* SpeechToTextV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechToTextV1.framework; path = Carthage/Build/iOS/SpeechToTextV1.framework; sourceTree = "<group>"; };
+		9331AD531EABF20100582C30 /* WatsonServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatsonServices.swift; sourceTree = "<group>"; };
+		9331AD551EABF56800582C30 /* Pulsator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulsator.framework; path = Carthage/Build/iOS/Pulsator.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9331AD571EABF5B800582C30 /* Pulsator.framework in Frameworks */,
+				9331AD521EABEFA200582C30 /* SpeechToTextV1.framework in Frameworks */,
 				9331AD4E1EABE28B00582C30 /* RestKit.framework in Frameworks */,
 				9331AD4F1EABE28B00582C30 /* TextToSpeechV1.framework in Frameworks */,
 			);
@@ -63,6 +71,7 @@
 			children = (
 				9331AD391EABDA1F00582C30 /* AppDelegate.swift */,
 				9331AD3B1EABDA1F00582C30 /* ViewController.swift */,
+				9331AD531EABF20100582C30 /* WatsonServices.swift */,
 				9331AD3D1EABDA1F00582C30 /* Main.storyboard */,
 				9331AD401EABDA1F00582C30 /* Assets.xcassets */,
 				9331AD421EABDA1F00582C30 /* LaunchScreen.storyboard */,
@@ -74,6 +83,8 @@
 		9331AD4B1EABE28A00582C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9331AD551EABF56800582C30 /* Pulsator.framework */,
+				9331AD511EABEFA200582C30 /* SpeechToTextV1.framework */,
 				9331AD4C1EABE28B00582C30 /* RestKit.framework */,
 				9331AD4D1EABE28B00582C30 /* TextToSpeechV1.framework */,
 			);
@@ -158,6 +169,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/TextToSpeechV1.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RestKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SpeechToTextV1.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Pulsator.framework",
 			);
 			outputPaths = (
 			);
@@ -172,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9331AD541EABF20100582C30 /* WatsonServices.swift in Sources */,
 				9331AD3C1EABDA1F00582C30 /* ViewController.swift in Sources */,
 				9331AD3A1EABDA1F00582C30 /* AppDelegate.swift in Sources */,
 			);

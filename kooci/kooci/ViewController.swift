@@ -7,39 +7,60 @@
 //
 
 import UIKit
-import TextToSpeechV1
-import AVFoundation
+import Pulsator
 
 class ViewController: UIViewController {
     
-    // the audio player
-    var audioPlayer = AVAudioPlayer()
-
+    let watsonService = WatsonServices()
+    var pulsatorMaxRadius: CGFloat = 0
+    let pulsatorMaxDuration = 10.0
+    let pulsatorMaxInterval = 5.0
+    let pulsatorNumPulse = 4
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let username = "b39e1e6a-f4cd-46ec-8236-e90680c0d23b"
-        let password = "JGsVO86XLDsW"
-        let textToSpeech = TextToSpeech(username: username, password: password)
+        pulsatorMaxRadius = view.frame.width/2
         
-        let text = "Hello, I'm kuki!"
+        startWatson()
         
-        textToSpeech.synthesize(text, voice: SynthesisVoice.us_Allison.rawValue , success: { data in
-            do {
-                self.audioPlayer = try AVAudioPlayer(data: data)
-                self.audioPlayer.play()
-            } catch let error {
-                print("error \(error) playing audio file")
-            }
-        })
+        addPulsator()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    private func addPulsator() {
+        let sourceView = UIView()
+        sourceView.frame = CGRect(x: view.frame.midX-20, y: view.frame.midY-20, width: view.frame.width/8,
+                                  height: view.frame.width/8)
+        sourceView.backgroundColor = .clear
+        view.addSubview(sourceView)
+        
+        let pulsator = Pulsator()
+        pulsator.backgroundColor = UIColor.white.cgColor
+        pulsator.numPulse = pulsatorNumPulse
+        pulsator.radius = pulsatorMaxRadius
+        pulsator.animationDuration = pulsatorMaxDuration
+        //pulsator.pulseInterval = pulsatorMaxInterval
+        pulsator.position = sourceView.layer.position
+        sourceView.layer.superlayer?.insertSublayer(pulsator, below: sourceView.layer)
+        
+        pulsator.start()
+    }
+    
+    private func startWatson() {
+        let text = "Hi I'm kuki!"
+        watsonService.speak(text: text){success in
+            if success {
+                self.watsonService.startStreaming(){ success in
+                    // TODO
+                }
+            }
+        }
+    }
 }
 
