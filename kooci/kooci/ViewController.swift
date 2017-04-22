@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     let pulsatorMaxInterval = 5.0
     let pulsatorNumPulse = 4
     
+    let recipes = [Recipe]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -56,8 +58,16 @@ class ViewController: UIViewController {
         let text = "Hi I'm kuki!"
         watsonService.speak(text: text){success in
             if success {
-                self.watsonService.startStreaming(){ success in
-                    // TODO
+                self.watsonService.startStreaming(){ result in
+                    // get recipe
+                    for recipe in self.recipes {
+                        let startTrigger = recipe.name.lowercased()
+                        let lowerResult = result.lowercased()
+                        if lowerResult.contains(startTrigger) {
+                            recipe.start()
+                            self.watsonService.stopStreaming()
+                        }
+                    }
                 }
             }
         }

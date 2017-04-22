@@ -43,14 +43,14 @@ class WatsonServices {
         })
     }
     
-    func startStreaming(completion: @escaping (_ success: Bool) -> Void) {
+    func startStreaming(completion: @escaping (_ success: String) -> Void) {
         var settings = RecognitionSettings(contentType: .opus)
         settings.interimResults = true
         settings.continuous = true
         
         speechToText?.recognizeMicrophone(settings: settings, success: { results in
             print(results.bestTranscript)
-            completion(true)
+            completion(results.bestTranscript)
         })
     }
     
